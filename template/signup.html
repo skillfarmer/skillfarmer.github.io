@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/logsignstyles.css">
+    <script src="/static/script.js" defer></script>
+    <title>Login Page</title>
+</head>
+<body>
+    {% if "Succesfully" in messages %} 
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="login-container">
+        <h2>Sign Up</h2>
+        <form method="post" action="/signup">
+            {% csrf_token %}
+            <label for="fname">First Name :</label>
+            <input type="text" id="fname" placeholder="Seresh" name="fname"><br><br>
+
+            <label for="lname">Last Name :</label>
+            <input type="text" id="lname" placeholder="Rathore" name="lname"><br><br>
+            
+            <label for="region">Region :</label>
+            <input type="text" id="region" placeholder="India" name="region"><br><br>
+
+            <label for="state">State :</label>
+            <input type="text" id="state" placeholder="Madhya Pradesh" name="state"><br><br>
+
+            <label for="city">City :</label>
+            <input type="text" id="city" placeholder="Bhopal" name="city"><br><br>
+
+            <label for="pincode">Pincode :</label>
+            <input type="text" id="pincode" placeholder="420001" name="pincode"><br><br>
+
+            <label for="phoneno">Mobile no. :</label>
+            <input type="phone" id="phoneno" placeholder="9658XXXX25" name="phoneno"><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="A-Z, a-z, 0-9, @$._" name="password"><br><br>
+
+            <input type="submit" value="Create Account"><br>
+            <p align="center">Already have Account? <a href="\login">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>
